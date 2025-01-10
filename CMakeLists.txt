@@ -7,7 +7,7 @@ find_package(raylib REQUIRED)
 # copy resource files, reference: https://github.com/raysan5/raylib/blob/master/examples/CMakeLists.txt
 file(GLOB resources src/resources/*)
 list(APPEND example_resources ${resources})
-file(COPY ${example_resources} DESTINATION "Release/resources")
+file(COPY ${example_resources} DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/resources) # reference: https://stackoverflow.com/q/34799916
 
 add_executable(${PROJECT_NAME} src/main.c)
 
